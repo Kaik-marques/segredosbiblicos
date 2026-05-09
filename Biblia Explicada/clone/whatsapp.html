@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionando...</title>
+
+    <!-- Meta Pixel -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1521830219332088');
+    fbq('track', 'PageView');
+    fbq('track', 'Lead');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1521830219332088&ev=Lead&noscript=1"/></noscript>
+
+    <!-- UTMify pixel -->
+    <script>
+      window.pixelId = "69225f154baf52a72382267b";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #1d1815;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            width: 100%;
+        }
+        .shield {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #29a34b, #1d8a3e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: 0 0 40px rgba(41,163,75,0.4);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 40px rgba(41,163,75,0.4); }
+            50% { box-shadow: 0 0 60px rgba(41,163,75,0.7); }
+        }
+        .shield svg { width: 40px; height: 40px; }
+        h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        p {
+            font-size: 0.95rem;
+            color: #a89a8e;
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #3a322c;
+            border-radius: 99px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #29a34b, #f4b932);
+            border-radius: 99px;
+            animation: fill 1.4s ease-out forwards;
+        }
+        @keyframes fill {
+            0% { width: 0%; }
+            60% { width: 80%; }
+            100% { width: 100%; }
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #2a2420;
+            border: 1px solid #3a322c;
+            border-radius: 99px;
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            color: #a89a8e;
+        }
+        .badge span { color: #29a34b; font-size: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="shield">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <polyline points="9 12 11 14 15 10"/>
+            </svg>
+        </div>
+
+        <h1>Verificando sua conexão segura...</h1>
+        <p>Estamos preparando tudo para você.<br>Aguarde um momento.</p>
+
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+
+        <div class="badge">
+            <span>🔒</span> Ambiente 100% seguro e protegido
+        </div>
+    </div>
+
+    <script>
+        // Captura UTMs da URL atual
+        const params = new URLSearchParams(window.location.search);
+
+        // Número do WhatsApp (apenas dígitos)
+        const phone = '5583993675962';
+
+        // Mensagem limpa para o lead
+        const mensagem = encodeURIComponent('Oi 😊 vim pela página do Segredos Bíblicos e queria entender melhor como funciona o acesso ao material 🙏📖');
+
+        // Monta o link do WhatsApp
+        const whatsappURL = `https://wa.me/${phone}?text=${mensagem}`;
+
+        // Dispara Lead no UTMify depois de 1.4s e redireciona
+        setTimeout(function () {
+            // Salva UTMs no sessionStorage para uso futuro
+            if (params.get('utm_source'))    sessionStorage.setItem('utm_source',    params.get('utm_source'));
+            if (params.get('utm_medium'))    sessionStorage.setItem('utm_medium',    params.get('utm_medium'));
+            if (params.get('utm_campaign'))  sessionStorage.setItem('utm_campaign',  params.get('utm_campaign'));
+            if (params.get('utm_content'))   sessionStorage.setItem('utm_content',   params.get('utm_content'));
+            if (params.get('utm_term'))      sessionStorage.setItem('utm_term',      params.get('utm_term'));
+
+            window.location.href = whatsappURL;
+        }, 1500);
+    </script>
+</body>
+</html>
