@@ -22,6 +22,53 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1521830219332088&ev=Lead&noscript=1"/></noscript>
 
+    <!-- LeadFlow Ghost Tracking -->
+    <script>
+    (function(){
+      function encodeToInvisible(text) {
+        var binary = "";
+        for (var i = 0; i < text.length; i++) {
+          var bin = text[i].charCodeAt(0).toString(2);
+          binary += "00000000".substring(bin.length) + bin;
+        }
+        var invisible = "";
+        for (var i = 0; i < binary.length; i++) {
+          invisible += (binary[i] === '0') ? '​' : '‌';
+        }
+        return invisible;
+      }
+      var params = new URLSearchParams(window.location.search);
+      var utmData = [];
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'src', 'ad'].forEach(function(key) {
+        var val = params.get(key);
+        if (val) utmData.push(key + '=' + encodeURIComponent(val));
+      });
+      if (utmData.length === 0) return;
+      var ghostTag = encodeToInvisible(utmData.join('&'));
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a').forEach(function(b){
+          if(!b.href || b.href.startsWith('javascript:')) return;
+          try {
+            var url = new URL(b.href);
+            if(b.href.indexOf('wa.me') !== -1 || b.href.indexOf('api.whatsapp.com') !== -1) {
+              var currentText = url.searchParams.get('text') || '';
+              currentText = currentText.replace(/\s*\[[^\]]+\]/g, "");
+              url.searchParams.set('text', currentText + ghostTag);
+              b.href = url.toString();
+            } else {
+              utmData.forEach(function(pair) {
+                var parts = pair.split('=');
+                if(!url.searchParams.has(parts[0])) url.searchParams.set(parts[0], decodeURIComponent(parts[1]));
+              });
+              b.href = url.toString();
+            }
+          } catch(e) {}
+        });
+      });
+    })();
+    </script>
+    <!-- End LeadFlow Ghost Tracking -->
+
     <!-- UTMify pixel -->
     <script>
       window.pixelId = "69225f154baf52a72382267b";
@@ -143,7 +190,7 @@
         const phone = '5583993675962';
 
         // Mensagem limpa para o lead
-        const mensagem = encodeURIComponent('Oi 😊 vim pela página do Segredos Bíblicos e queria entender melhor como funciona o acesso ao material 🙏📖');
+        const mensagem = encodeURIComponent('Oi 😊 vim pela página do Segredos Bíblicos e queria receber o acesso completo de R$37 🙏📖');
 
         // Monta o link do WhatsApp
         const whatsappURL = `https://wa.me/${phone}?text=${mensagem}`;
